@@ -305,3 +305,33 @@ Diagrams
 
 Chat sessions
 These are stored in the Data Storage Layer.
+
+flowchart LR
+    User -->|Ask Question| Frontend_UI
+    
+5. High-Level System Architecture
+ 
+    Frontend_UI -->|Send Request| API_Gateway
+   
+
+    API_Gateway --> Query_Processor
+    Query_Processor --> Intent_Analyzer
+    Query_Processor --> Keyword_Extractor
+
+    Intent_Analyzer --> AI_Model_Controller
+    Keyword_Extractor --> AI_Model_Controller
+
+    AI_Model_Controller -->|Ask Model| LLM
+
+    LLM --> AI_Model_Controller
+    AI_Model_Controller --> Diagram_Generator
+
+    Diagram_Generator --> Formatted_Response
+
+    AI_Model_Controller --> Knowledge_Base
+    Knowledge_Base --> AI_Model_Controller
+
+    Formatted_Response --> API_Gateway
+    API_Gateway -->|Send Output| Frontend_UI
+    Frontend_UI --> User
+
