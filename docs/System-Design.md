@@ -335,3 +335,178 @@ flowchart LR
     API_Gateway -->|Send Output| Frontend_UI
     Frontend_UI --> User
 
+6. Component-Level Architecture
+
+Below is a detailed breakdown of each subsystem inside the AI Architecture Assistant Tool.
+
+6.1 Frontend (Chat UI)
+
+Responsibilities:
+
+Provide user-friendly chat interface
+
+Send user queries to backend
+
+Display diagrams, explanations, patterns
+
+Components:
+
+Chat Widget
+
+Rich Text Viewer (for formatted diagrams)
+
+Request Manager
+
+Response Renderer
+
+6.2 API Gateway
+
+Responsibilities:
+
+Acts as the entry point for all client requests
+
+Handles authentication (optional)
+
+Validates request format
+
+Routes requests to Query Processor
+
+Subcomponents:
+
+Auth Handler
+
+Rate Limiter
+
+Request Router
+
+6.3 Query Processor
+
+Responsibilities:
+
+Clean and transform user input
+
+Detect architecture terms
+
+Identify what the user wants:
+
+diagrams
+
+architecture explanations
+
+patterns
+
+comparison
+
+system design help
+
+Subcomponents:
+
+Text Normalizer
+
+Keyword Extractor
+
+Intent Analyzer
+
+Domain Classifier
+
+6.4 AI Model Controller
+
+This is the brain of your system.
+
+Responsibilities:
+
+Build correct prompts based on user intent
+
+Send prompts to LLM
+
+Integrate knowledge base references
+
+Handle fallback logic (if LLM is confused)
+
+Manage different prompt templates
+
+Subcomponents:
+
+Prompt Builder
+
+Response Validator
+
+Fallback Engine
+
+Result Orchestrator
+
+6.5 Diagram Generator
+
+Responsibilities:
+
+Convert model output into:
+
+Mermaid diagrams
+
+UML sequence diagrams
+
+Component diagrams
+
+ER diagrams
+
+Ensure diagrams follow best practices
+
+Subcomponents:
+
+UML Builder
+
+Diagram Formatter
+
+Diagram Validator
+
+6.6 Knowledge Base (Optional but Powerful)
+
+Stores reusable architecture assets.
+
+Responsibilities:
+
+Provide architecture templates
+
+Provide definitions for patterns
+
+Store user saved designs
+
+Provide examples for the model
+
+Subcomponents:
+
+Pattern Library
+
+Anti-pattern Library
+
+Template Library
+
+User Storage (optional)
+
+6.7 LLM (AI Engine)
+
+This can be GPT-style model.
+
+Responsibilities:
+
+Generate text and diagrams based on prompts
+
+Perform architectural reasoning
+
+Generate comparative analysis
+
+6.8 Storage Layer (Optional)
+
+Stores user questions
+
+Stores generated diagrams
+
+Stores architecture versions
+
+Database options:
+
+Firebase
+
+MongoDB
+
+PostgreSQL
