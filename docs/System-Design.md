@@ -204,3 +204,104 @@ Architecture template library
 
 Save/export features
 
+4. System Data Flow (End-to-End Flow)
+
+This section explains how a user request travels through the entire system.
+
+Step 1 — User Sends a Question
+
+User types a question in the chatbot interface
+(example: “Design a scalable microservices architecture for a payment system”).
+
+The request is sent to the AI Interaction Layer.
+
+Step 2 — AI Interaction Layer → Query Processing Engine
+
+The message is forwarded to the Query Processing Engine.
+
+The engine:
+
+Cleans the text
+
+Detects intent (architecture request / diagram request / explanation)
+
+Extracts keywords (e.g., “microservices”, “scalable”, “payment”)
+
+Step 3 — Query Processing Engine → AI Model Controller
+
+The processed request is sent to the AI Model Controller.
+
+The controller selects:
+
+The correct model
+
+Proper prompt structure
+
+Retrieves needed templates from the Architecture Knowledge Base
+
+Step 4 — AI Model Generates Architecture Output
+
+The model produces:
+
+Text description
+
+Architecture explanation
+
+Required diagrams (Mermaid UML)
+
+Best-practice rules
+
+Cloud recommendations (AWS/Azure/GCP)
+
+Step 5 — AI Model Controller → Diagram Generator
+
+If a diagram is needed:
+
+The controller sends architecture structure to the Diagram Generator Module
+
+Diagram generator converts it to:
+
+UML Class/Sequence diagrams
+
+Deployment diagrams
+
+System context diagrams
+
+Flowcharts
+
+Step 6 — Aggregated Response Returned
+
+AI Model Controller collects:
+
+Text output
+
+Diagrams
+
+References
+
+Architecture patterns
+
+The response is formatted cleanly.
+
+Step 7 — Response Sent to Frontend
+
+AI Interaction Layer delivers the final output back to the user:
+
+Explanation
+
+Diagram
+
+Architecture suggestions
+
+Templates
+
+Step 8 (Optional) — Save to Knowledge Base
+
+User can save:
+
+Architecture designs
+
+Diagrams
+
+Chat sessions
+These are stored in the Data Storage Layer.
