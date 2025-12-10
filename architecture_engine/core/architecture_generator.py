@@ -1,35 +1,41 @@
-def generate_architecture(user_message):
-    """
-    Very simple rule-based architecture generator.
-    You can improve this later.
-    """
+# architecture_engine/core/architecture_generator.py
 
-    msg = user_message.lower()
-
-    if "microservice" in msg:
+def generate_architecture(project_type: str) -> str:
+    """
+    Generate a high-level software architecture description
+    based on the project type.
+    """
+    if "mobile" in project_type.lower():
         return (
-            "🧩 Microservices Architecture\n"
+            "Mobile App Architecture:\n"
+            "- Client Layer (React Native / Flutter)\n"
+            "- API Gateway\n"
+            "- Backend Service Layer (FastAPI / Node.js)\n"
+            "- Database Layer\n"
+            "- Optional: Authentication Service"
+        )
+
+    if "web" in project_type.lower():
+        return (
+            "Web Application Architecture:\n"
+            "- Frontend (React / Vue)\n"
+            "- Backend REST API (FastAPI)\n"
+            "- Service Layer\n"
+            "- Database Layer (PostgreSQL)"
+        )
+
+    if "microservice" in project_type.lower():
+        return (
+            "Microservice Architecture:\n"
             "- API Gateway\n"
             "- Multiple independent services\n"
-            "- Database per service\n"
-            "- Service registry\n"
-            "- Message broker (Kafka / RabbitMQ)"
+            "- Event-driven communication (Kafka)\n"
+            "- Centralized logging + monitoring"
         )
 
-    if "3 tier" in msg or "three tier" in msg:
-        return (
-            "🏛 3-Tier Architecture\n"
-            "1. Presentation Layer (React/Flutter)\n"
-            "2. Application Layer (FastAPI/Node.js)\n"
-            "3. Database Layer (MySQL/MongoDB)"
-        )
-
-    if "monolithic" in msg:
-        return (
-            "📦 Monolithic Architecture\n"
-            "- Single codebase for all modules\n"
-            "- MVC structure\n"
-            "- Shared database"
-        )
-
-    return "I can generate microservices, monolithic, or 3-tier architectures. Try asking: 'Give microservices architecture for a hospital system'."
+    return (
+        "Standard 3-Tier Architecture:\n"
+        "- Presentation Layer\n"
+        "- Application Layer\n"
+        "- Data Layer"
+    )
