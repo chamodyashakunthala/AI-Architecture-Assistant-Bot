@@ -1,16 +1,22 @@
-def suggest_pattern(user_message):
-    msg = user_message.lower()
+# architecture_engine/core/pattern_advisor.py
 
-    if "payment" in msg:
-        return "Use the Strategy Pattern for multiple payment methods."
+def recommend_pattern(problem_type: str) -> str:
+    """
+    Recommends design patterns based on the problem described.
+    """
 
-    if "logging" in msg:
-        return "Use the Singleton Pattern for a centralized logging manager."
+    problem_type = problem_type.lower()
 
-    if "notifications" in msg:
-        return "Use the Observer Pattern for push notifications."
+    if "database" in problem_type:
+        return "Recommended Pattern: Repository Pattern"
 
-    if "database" in msg:
-        return "Use the Repository Pattern to abstract data access."
+    if "ui" in problem_type or "interface" in problem_type:
+        return "Recommended Pattern: MVC or MVVM"
 
-    return "Try asking: 'Which pattern should I use for login, caching, messaging, or notifications?'"
+    if "object creation" in problem_type:
+        return "Recommended Pattern: Factory Pattern"
+
+    if "algorithm" in problem_type:
+        return "Recommended Pattern: Strategy Pattern"
+
+    return "Recommended Pattern: Adapter or Facade (general purpose)"
