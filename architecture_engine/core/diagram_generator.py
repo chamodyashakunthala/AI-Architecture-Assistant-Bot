@@ -1,32 +1,30 @@
-def generate_diagram(user_message):
-    msg = user_message.lower()
+# architecture_engine/core/diagram_generator.py
 
-    if "class" in msg:
+def generate_ascii_diagram(diagram_type: str) -> str:
+    """
+    Generate basic ASCII diagrams for architecture visualization.
+    """
+    if diagram_type == "3-tier":
         return (
-            "📘 Class Diagram (simplified)\n"
-            "\n"
-            "[User]\n"
-            " - id\n"
-            " - name\n"
-            " - email\n"
-            "\n"
-            "[Appointment]\n"
-            " - id\n"
-            " - time\n"
-            " - date\n"
-            "\n"
-            "User 1 --- * Appointment"
+            "+------------------------+\n"
+            "|    Presentation Layer  |\n"
+            "+------------------------+\n"
+            "            |\n"
+            "+------------------------+\n"
+            "|   Application Layer    |\n"
+            "+------------------------+\n"
+            "            |\n"
+            "+------------------------+\n"
+            "|       Data Layer       |\n"
+            "+------------------------+"
         )
 
-    if "sequence" in msg:
+    if diagram_type == "client-server":
         return (
-            "📗 Sequence Diagram (login)\n"
-            "\n"
-            "User → UI: enter credentials\n"
-            "UI → Backend: validate\n"
-            "Backend → DB: query user\n"
-            "DB → Backend: return result\n"
-            "Backend → UI: success"
+            "+-----------+      +-----------+\n"
+            "|   Client  | ---> |  Server   |\n"
+            "+-----------+      +-----------+"
         )
 
-    return "I can generate class or sequence diagrams. Try: 'Draw class diagram for school system'."
+    return "Diagram type not recognized."
+
