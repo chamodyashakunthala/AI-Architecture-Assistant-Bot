@@ -1,28 +1,18 @@
-def generate_database_design(user_message):
-    msg = user_message.lower()
+# architecture_engine/core/database_designer.py
 
-    if "library" in msg:
-        return (
-            "📚 Library Database Design\n"
-            "Entities:\n"
-            "- Book(book_id, title, author_id)\n"
-            "- Author(author_id, name)\n"
-            "- Member(member_id, name)\n\n"
-            "Relationships:\n"
-            "- Author 1 --- * Book\n"
-            "- Member * --- * Book (borrow)"
-        )
+def generate_database_model(project_name: str) -> str:
+    """
+    Generates a basic database model idea using entities and relationships.
+    """
 
-    if "school" in msg:
-        return (
-            "🏫 School Database Design\n"
-            "Entities:\n"
-            "- Student(id, name, grade)\n"
-            "- Teacher(id, name, subject)\n"
-            "- Class(id, room)\n\n"
-            "Relationships:\n"
-            "- Teacher 1 --- * Class\n"
-            "- Student * --- 1 Class"
-        )
+    return (
+        f"Database Model for {project_name}:\n"
+        "- Entities:\n"
+        "  * User (user_id, name, email)\n"
+        "  * Project (project_id, title, description)\n"
+        "  * Task (task_id, title, status)\n"
+        "- Relationships:\n"
+        "  * User 1---N Project\n"
+        "  * Project 1---N Task"
+    )
 
-    return "Try: 'Create database for hospital/library/school/e-commerce'."
